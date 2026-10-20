@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ---------- Design tokens (single source of truth) ---------- */
+:root {
+  --page: #f8f7f4;
+  --card: #ffffff;
+  --sidebar: #171923;
+  --sidebar-ink: #c9cbd6;
+  --ink: #20212b;
+  --muted: #5f6170; /* AA on page + card */
+  --accent: #7566e8;
+  --accent-hover: #6454d7;
+  --accent-soft: #eeecfc;
+  --line: #e8e6e1;
+  --success-bg: #dcefe5;
+  --success-fg: #256b4a;
+  --warning-bg: #f7e6cc;
+  --warning-fg: #8a5a16;
+  --error-bg: #f9e0e0;
+  --error-fg: #a43737;
+
+  /* stage palette (shared by badges, charts, pipeline) */
+  --stage-applied: #9a9cab;
+  --stage-screening: #7566e8;
+  --stage-interview: #3f8fc4;
+  --stage-offer: #d08b2c;
+  --stage-hired: #2f8a5f;
+  --stage-rejected: #c26060;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-card: var(--card);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-ink: var(--sidebar-ink);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --color-success-bg: var(--success-bg);
+  --color-success-fg: var(--success-fg);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-fg: var(--warning-fg);
+  --color-error-bg: var(--error-bg);
+  --color-error-fg: var(--error-fg);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 14px;
+  --radius-control: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #efede8 25%, #f6f4f0 37%, #efede8 63%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+/* Continuous Marquee Ticker Animation */
+@keyframes ticker {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
