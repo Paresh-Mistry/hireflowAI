@@ -1,8 +1,24 @@
-# HireFlow AI — *A clearer way to hire.*
-
-A lightweight applicant tracking system (ATS) with a drag-and-drop hiring pipeline, searchable candidate profiles, per-application notes and activity, and an evidence-based AI recruiting assistant.
-
-> Status: all features below are implemented. Automated tests have **not** been written yet, and the app has **not** been deployed or run against a live Supabase project from this repo (see [Verification status](#verification-status)).
+# HireFlow AI: Project Details
+ 
+HireFlow AI is a Mini Applicant Tracking System (ATS). Recruiters manage jobs and candidates, move applications through a hiring pipeline, keep notes, and request an evidence-based AI review of a resume against a job.
+ 
+> Internship assignment project. All bundled data is fictional.
+ 
+---
+ 
+## 1. Tech Stack
+ 
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router, Turbopack), React 19, TypeScript (strict) |
+| Styling | Tailwind CSS 4 with CSS-variable design tokens, Plus Jakarta Sans |
+| UI | Hand-written Radix-based primitives (shadcn-style), Lucide icons, Sonner toasts |
+| Interaction | dnd-kit (drag and drop), motion (animation), Recharts (charts) |
+| Forms | React Hook Form + Zod |
+| Backend | Supabase: Postgres, Auth, Storage, Row Level Security |
+| AI | Google Gemini REST API (default model `gemini-2.5-flash`) |
+| PDF text | pdf-parse |
+| Deploy | Vercel |
 
 ## Features
 - **Auth**: Supabase email/password, session refresh in `src/proxy.ts`, every page/action re-verifies the user server-side.
